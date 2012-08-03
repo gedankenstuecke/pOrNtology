@@ -20,6 +20,8 @@ def IterateTagPages(url):
     soup = BeautifulSoup(urlcontent,"xml")
     video_urls = []
     video_urls.extend(GetVideosForPage(soup))
+    next_url = ""
+    next = False
     print len(video_urls)
     for i in soup.findAll("a","nP"):
         if i.string == "Next":
@@ -86,18 +88,18 @@ def IterateTags(url):
         print "getting new tags"
         tag_collection = TagList(url)
         print "got new tags"
-    new_tag_collection = copy.deepcopy(tag_collection)
     
-    for tag,value in tag_collection.items():
+    for tag,value in tag_collection.iteritems():
         if value == False:
             print "############################################"
             print "iterate over videos for %s" % (tag)
             video_collection = VideosForTag(video_collection,"http://video.xnxx.com"+tag)
             print "got all videos for %s" % (tag)
-            new_tag_collection[tag] == True
+            tag_collection[tag] = True
+            print tag_collection[tag]
             video_pickle = open("video_collection.pickle","wb")
             tag_pickle = open("tag_collection.pickle","wb")
-            pickle.dump(new_tag_collection,tag_pickle)
+            pickle.dump(tag_collection,tag_pickle)
             print "Saved Tag-Collection"
             pickle.dump(video_collection,video_pickle)
             print "Saved Video Collection"
