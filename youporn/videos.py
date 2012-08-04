@@ -23,19 +23,19 @@ def GetVideoTags(videourl):
     soup = BeautifulSoup(urlcontent,"xml") # parse using the xml-parser & beautiful soup
     video = Video() # initialize new video
     video.url = str(videourl)
-    length_date = soup.find("ul",{"class":"spaced"}).findAll("li")
-    for element in length_date:
-        if element.getText().find("Duration:") != -1:
-            video.length = element.getText()[element.getText().find("Duration:")+10:]
-        elif element.getText().find("Date:") != -1:
-            video.date = element.getText()[element.getText().find("Date:")+6:]
-    tag_elements = soup.find("ul",{"class":"listCat"}).findAll("a") # iterate over all <a></a>-tags
-    for element in tag_elements:
-        if element["href"].find("porntags") == -1:
-            video.categories.append(str(element.string))
-        else:
-            video.tags.append(str(element.string))
-    #    if a.has_key("href"):
-    #        if a["href"].find("tags") != -1 and a.string != "Tags": # if href includes "/tags/": Append <a>string</a> to video-tag
-    #            video.tags.append(str(a.string))
+    try:
+        length_date = soup.find("ul",{"class":"spaced"}).findAll("li")
+        for element in length_date:
+            if element.getText().find("Duration:") != -1:
+                video.length = element.getText()[element.getText().find("Duration:")+10:]
+            elif element.getText().find("Date:") != -1:
+                video.date = element.getText()[element.getText().find("Date:")+6:]
+        tag_elements = soup.find("ul",{"class":"listCat"}).findAll("a") # iterate over all <a></a>-tags
+        for element in tag_elements:
+            if element["href"].find("porntags") == -1:
+                video.categories.append(str(element.string))
+            else:
+                video.tags.append(str(element.string))
+    except:
+        pass
     return video
