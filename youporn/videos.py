@@ -16,13 +16,13 @@ class Video():
         return "%s, Tags: %s, Categories: %s, %s, %s" % (self.url,str(self.tags),str(self.categories),self.length,self.date)
 
 def GetVideoTags(videourl):
+    video = Video() # initialize new video
     try: # failsafe: youporn is great in giving links to broken URLs which crash everything. 
         opener = urllib2.build_opener()
         opener.addheaders.append(("Cookie","age_verified=1"))
         url = opener.open(videourl)
         urlcontent = url.read() # read content
         soup = BeautifulSoup(urlcontent,"xml") # parse using the xml-parser & beautiful soup
-        video = Video() # initialize new video
         video.url = str(videourl)
         length_date = soup.find("ul",{"class":"spaced"}).findAll("li")
         for element in length_date:
