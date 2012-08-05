@@ -68,9 +68,12 @@ def VideosForTag(video_collection,url):
     print "got video-urls"
     print "getting tag-collection for all videos"
     for video in video_urls:
-        print video
-        video_tags = videos.GetVideoTags(video)
-        video_collection[video_tags.url] = video_tags
+        if video_collection.has_key(video) == False:
+            print "saving "+video
+            video_tags = videos.GetVideoTags(video)
+            video_collection[video_tags.url] = video_tags
+        else:
+            print "skipped "+video+ " as already saved"
     print "got all videos for tag"
     return video_collection
 
