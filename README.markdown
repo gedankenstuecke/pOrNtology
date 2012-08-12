@@ -1,0 +1,2 @@
+# Analysis of Porn Video-Sharing Pages
+Right now focussed on *YouPorn* and *XNXX* as those are listed as the largest pages of this kind in the adult-category on *Alexa*.  Not much to see right now. Scripts for crawling the pages can be found in */scripts* and preliminary data can be found in */results*.  
