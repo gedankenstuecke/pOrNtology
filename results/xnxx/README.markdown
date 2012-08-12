@@ -1,6 +1,6 @@
 # Results of the XNXX Crawling
 
-The crawling was done in two instances. The first crawling took from $date to $date. Afterwards a second run, from $date to $date was done to make sure no bias was introduced through the length of the first crawling run. The results of the second run were tested for how many videos were uploaded after the second run started. As only 11 videos were uploaded during the second run they were included in the final analysis.
+The crawling was done in two instances. The first crawling took from 08/04/2012 to 08/11/2012. Afterwards a second run, on 08/12/2012, was done to make sure no bias was introduced through the length of the first crawling run. The results of the second run were tested for how many videos were uploaded after the second run started. As only 11 videos were uploaded during the second run they were included in the final analysis.
 
 ## Some Basic Numbers
 * Total number of videos crawled: 1449142
