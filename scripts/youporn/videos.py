@@ -30,12 +30,16 @@ def GetVideoTags(videourl):
                 video.length = element.getText()[element.getText().find("Duration:")+10:]
             elif element.getText().find("Date:") != -1:
                 video.date = element.getText()[element.getText().find("Date:")+6:]
-        tag_elements = soup.find("ul",{"class":"listCat"}).findAll("a") # iterate over all <a></a>-tags
-        for element in tag_elements:
-            if element["href"].find("porntags") == -1:
-                video.categories.append(str(element.string))
-            else:
-                video.tags.append(str(element.string))
+        tag_elements = soup.findAll("ul",{"class":"listCat"})
+        for tag_element in tag_elements:
+            if str(tag_element.b.text) == "Categories:":
+                elements = tag_element.findAll("a")
+                for element in elements:
+                    video.categories.append(str(element.string))
+            elif str(tag_element.b.text) == "Tags:":
+                elements = tag_element.findAll("a")
+                for element in elements:
+                    video.tags.append(str(element.string))                   
     except:
         pass
     return video
