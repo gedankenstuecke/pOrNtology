@@ -8,11 +8,22 @@ The crawling was done in two instances. The first crawling took from 08/04/2012 
 * Total number of tags over all videos: 14061156
 * Number of unique tags: 66277
 
+* Over 80% (52767) of tags are listed on less than 10 videos. 
+* Most used tag: 28% (419936) of all videos are tagged with "blowjob"
+
+* The total runtime of 1343161 videos which have tags: 664956069 seconds -> over 21 years(!)
+
 ## Data: Pickle Object & CSVs
 The data is available as the pickle object which was used for the crawling in *video_collection.pickle*. To load the object you need to import the video-class which is defined in */scripts/xnxx/videos.py*. The pickle objects were dumped into a CSV. The data can be found including all videos (*videos_raw.csv*) or excluding the 11 videos which were found during the intermediate crawling (*videos_crawltime_filtered.csv*).   
 
 ## Clustering
 The videos were clustering using the Markov Clustering Algorithm [1]. Data was with the following parameters: *mcl -i mclInput -scheme 7 -i 5.0 -o mclOutputInflation5.0*.  
+
+* There are main clusters which differ hugely in size. 
+
+1. Heterosexual porn. 64321 (98%) tags are in this cluster. Top tags are "blowjob", "hardcore", "amateur", "teen", "blonde", "brunette", "anal", "cumshot",…
+2. Gay porn. 551 (0.8%) tags are in this cluster. Top tags are "gay", "gaysex", "gayporn", "gay-fucking", "gay-anal", "gay-hardcore", "gay-hunk", "gay-stud",…
+3. Transsexual porn. 318 (0.05%) tags are in this cluster. Top tags are "shemale", "tranny", "ladyboy", "trans", "transsexual", "tgirl", "transvestite", "transexual",…
 
 **Description of results missing until now** 
 
